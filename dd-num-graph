@@ -30,6 +30,7 @@ if __name__ == '__main__':
     ax.set_xticks(xs, xs)
     ax.grid()
     ax.plot(xs, ys)
+    ax.set_ylim(bottom=0)
     fig.tight_layout(pad=2)
     fig.savefig(options.path)
 
