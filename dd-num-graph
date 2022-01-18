@@ -1,0 +1,36 @@
+#!/usr/bin/env python3
+
+# Copyright © 2022 Jakub Wilk <jwilk@jwilk.net>
+# SPDX-License-Identifier: MIT
+
+import argparse
+import re
+import sys
+
+import matplotlib.pyplot as plt
+
+if __name__ == '__main__':
+    ap = argparse.ArgumentParser()
+    ap.add_argument('path', metavar='OUT-FILE')
+    options = ap.parse_args()
+    xs = []
+    ys = []
+    for line in sys.stdin:
+        match = re.match('\s*[|]\s*(\d+)\s*[|]\s*(\d+)\s*[|]', line)
+        if match is None:
+            continue
+        x, y = map(int, match.groups())
+        xs += [x]
+        ys += [y]
+    assert len(xs) == len(ys)
+    if len(xs) == 0:
+        raise RuntimeError('no input data found')
+    (fig, ax) = plt.subplots()
+    fig.set_size_inches(16, 8)
+    ax.set_xticks(xs, xs)
+    ax.grid()
+    ax.plot(xs, ys)
+    fig.tight_layout(pad=2)
+    fig.savefig(options.path)
+
+# vim:ts=4 sts=4 sw=4 et
