@@ -16,7 +16,7 @@ if __name__ == '__main__':
     xs = []
     ys = []
     for line in sys.stdin:
-        match = re.match('\s*[|]\s*(\d+)\s*[|]\s*(\d+)\s*[|]', line)
+        match = re.match(r'\s*[|]\s*(\d+)\s*[|]\s*(\d+)\s*[|]', line)
         if match is None:
             continue
         x, y = map(int, match.groups())
