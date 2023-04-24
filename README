@@ -1,7 +1,7 @@
 .. code:: console
 
-   $ w3m -dump https://lists.debian.org/debian-devel-announce/2022/04/msg00007.html | dd-num-graph 2022.svg
+   $ w3m -dump https://lists.debian.org/debian-devel-announce/2023/04/msg00005.html | dd-num-graph 2023.svg
 
-.. image:: 2022.svg
+.. image:: 2023.svg
 
 .. vim:ft=rst ts=3 sts=3 sw=3 et
